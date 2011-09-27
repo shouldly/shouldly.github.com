@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Design by Free CSS Templates
 http://www.freecsstemplates.org
@@ -40,87 +40,94 @@ Released   : 20071007
 <!-- start latest post -->
 <div id="latest-post" class="wide-post">
 	<h1 class="title">How asserting <em>should</em> be:</h1>
-	<div class="entry">
-		This is the old <em>Assert</em> way:
-    			<pre>Assert.That(contestant.Points, Is.EqualTo(1337));</pre>
-		<br />
-		For your troubles, you get this message, when it fails:
-    			<pre>Expected 1337 but was 0</pre>
+	<div class="entry">This is the old <em>Assert</em> way:
 
-		<p>&nbsp;</p>
+<pre><code>Assert.That(contestant.Points, Is.EqualTo(1337));
+</code></pre>
 
-		How it <strong>Should</strong> be:
-			<pre>contestant.Points.ShouldBe(1337);</pre>
-		<br />
-		Which is just syntax, so far, but check out the message when it fails:
-			<pre>contestant.Points should be 1337 but was 0</pre>
+<p>For your troubles, you get this message, when it fails:</p>
 
-		<p>&nbsp;</p>
+<pre><code>Expected 1337 but was 0
+</code></pre>
 
-It might be easy to underestimate how useful this is. Another example, side by side:
-    <pre>Assert.That(map.Value("boo"), Is.EqualTo(2));	// -> Expected 2 but was 1
-map.Value("boo").ShouldBe(2);	// -> map.Value("boo") should be 2 but was 1
-</pre>
+<p>How it <strong>Should</strong> be:</p>
 
-		<p>&nbsp;</p>
+<pre><code>contestant.Points.ShouldBe(1337);
+</code></pre>
 
-<strong>Shouldly uses the variables within the <em>ShouldBe</em> statement to report on errors, which makes diagnosing easier.</strong>
+<p>Which is just syntax, so far, but check out the message when it fails:</p>
 
-		<p>&nbsp;</p>
+<pre><code>contestant.Points should be 1337 but was 0
+</code></pre>
 
-The <em>Shouldly</em> library has other features.
-It integrates with RhinoMocks, to give clear messages about expectation failures:
-Here's the message without Shouldly; helpful, but not great...
-    <pre>Rhino.Mocks.Exceptions.ExpectationViolationException:
-IContestant.PlayGame("Shouldly"); Expected #1, Actual #0</pre>
+<p>It might be easy to underestimate how useful this is. Another example, side by side:</p>
 
-<br />
+<pre><code>Assert.That(map.IndexOfValue("boo"), Is.EqualTo(2));
+    // -&gt; Expected 2 but was 1
+    
+map.IndexOfValue("boo").ShouldBe(2);
+    // -&gt; map.IndexOfValue("boo") should be 2 but was 1
+</code></pre>
 
-<em>Shouldly's</em> message:
-    <pre>Expected:
-	IContestant.PlayGame("Shouldly");
-Recorded:
-	IContestant.PlayGame("Debugging");
-	IContestant.PlayGame("Logging");
-	IContestant.PlayGame("Drinking coffee");
-	IContestant.PlayGame("Commenting out test");</pre>
+<p><strong>Shouldly</strong> uses the variables within the <em>ShouldBe</em> statement to report on errors, which makes diagnosing easier.</p>
 
-		<p>&nbsp;</p>
+<p>Another example, if you compare two collections:</p>
 
+<pre><code>(new[] { 1, 2, 3 }).ShouldBe(new[] { 1, 2, 4 });
+</code></pre>
 
-Other *Shouldly* features:
+<p>and it fails because they're different, it'll show you the differences between the two collections:
 <pre>
-##Equality
-ShouldBe
-ShouldNotBe
-ShouldBeGreaterThan(OrEqualTo)
-ShouldBeLessThan(OrEqualTo)
-ShouldBeTypeOf
-ShouldBeSameAs
-ShouldNotBeSameAs
+        should be
+    [1, 2, 4]
+        but was
+    [1, 2, 3]
+        difference
+    [1, 2, *3*]</pre></p>
+
+<p>If you want to check that a particular call does/does not throw an exception, it's as simple as:</p>
+
+<pre><code>Should.Throw&lt;ArgumentOutOfRangeException&gt;(() =&gt; widget.Twist(-1));
+</code></pre>
+
+<p>Then if it chucks a wobbly, you have access to the exception to help debug what the underlying cause was.</p>
+
+<p>Other <em>Shouldly</em> features:</p>
+
+<pre><code>##Equality
+    ShouldBe
+    ShouldNotBe
+    ShouldBeGreaterThan(OrEqualTo)
+    ShouldBeLessThan(OrEqualTo)
+    ShouldBeTypeOf&lt;T&gt;
 
 ##Enumerable
-ShouldContain
-ShouldNotContain
+    ShouldContain
+    ShouldContain(predicate)
+    ShouldNotContain
+    ShouldNotContain(predicate)
+    ShouldBeEmpty
+    ShouldNotBeEmpty
 
 ##String
-ShouldBeCloseTo
-ShouldStartWith
-ShouldEndWith
-ShouldContain
-ShouldNotContain
-ShouldContainWithoutWhitespace
-ShouldMatch
+    ShouldBeCloseTo
+    ShouldStartWith
+    ShouldEndWith
+    ShouldContain
+    ShouldNotContain
+    ShouldContainWithoutWhitespace
+    ShouldMatch
 
 ##Dictionary
-ShouldContainKey
-ShouldContainKeyAndValue
-ShouldNotContainKey
-ShouldNotContainKeyAndValue
+    ShouldContainKeyShouldContainKeyAndValue
+    ShouldNotContainKey
+    ShouldNotContainKeyAndValue
 
-##Rhino Mocks
-ShouldHaveBeenCalled
-</pre>
+##Exceptions
+    Should.Throw&lt;T&gt;(Action)
+    Should.NotThrow(Action)
+</code></pre>
+
 
 		<p>&nbsp;</p>
 	</div>
