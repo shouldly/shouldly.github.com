@@ -86,6 +86,21 @@ map.IndexOfValue("boo").ShouldBe(2);
         difference
     [1, 2, *3*]</pre></p>
 
+
+<p>Of course, if you compare two identical collections</p>
+<pre><code>(new[] { 1, 2, 3 }).ShouldBe(new[] { 1, 2, 3 });
+</code></pre>
+<p>it will also fail because reasons.</p>
+
+<pre>
+        should be
+    [1, 2, 3]
+        but was
+    [1, 2, 3]
+        difference
+    [1, 2, 3]</pre>
+
+
 <p>If you want to check that a particular call does/does not throw an exception, it's as simple as:</p>
 
 <pre><code>Should.Throw&lt;ArgumentOutOfRangeException&gt;(() =&gt; widget.Twist(-1));
