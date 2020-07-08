@@ -1,8 +1,6 @@
 # Overview
 
-
-
-## ![Shouldly Logo](https://raw.githubusercontent.com/shouldly/shouldly/master/assets/logo_350x84.png)
+![Shouldly Logo](https://raw.githubusercontent.com/shouldly/shouldly/master/assets/logo_350x84.png)
 
 [![Build Status](https://ci.appveyor.com/api/projects/status/github/shouldly/shouldly?branch=master&svg=true)](https://ci.appveyor.com/project/shouldly/shouldly) [![NuGet](https://img.shields.io/nuget/dt/shouldly.svg)](https://www.nuget.org/packages/Shouldly) [![NuGet](https://img.shields.io/nuget/vpre/shouldly.svg)](https://www.nuget.org/packages/Shouldly) [![Documentation Status](https://readthedocs.org/projects/shouldly/badge/?version=latest)](https://shouldly.readthedocs.org/en/latest/?badge=latest)
 
