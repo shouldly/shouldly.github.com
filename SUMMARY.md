@@ -4,3 +4,7 @@
 * [Contributing](overview.md)
 * [Shouldly](undefined.md)
 
+## Documentation
+
+* [Getting Started](documentation/getting-started.md)
+
