@@ -1,8 +1,7 @@
 # Table of contents
 
-* [Introduction to Shoudly](README.md)
+* [Overview](README.md)
 * [Contributing](overview.md)
-* [Shouldly](undefined.md)
 
 ## Documentation
 
