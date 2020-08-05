@@ -14,7 +14,7 @@ dotnet add package Shouldly
 
 ## Your first Shouldly assertion
 
-Once installed you're ready to try your first Shouldly assertion. To begin with we'll start with a simple string equality check. In a test method perform the following test:
+Once installed you're ready to try your first Shouldly assertion. To begin with we'll start with a simple string equality check. In a test method perform the following test (in the following example I'm using XUnit):
 
 ```csharp
 [Fact]
